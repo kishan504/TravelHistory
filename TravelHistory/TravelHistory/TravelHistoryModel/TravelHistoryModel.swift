@@ -5,18 +5,22 @@
 //  Created by Cepl on 13/11/21.
 //
 import Foundation
-struct TravelHistoryModel: Codable {
-    @DecodableDefault.EmptyInt var placeId: Int
-    @DecodableDefault.EmptyString var licence: String
-    @DecodableDefault.EmptyString var osmType: String
-    @DecodableDefault.EmptyInt var osmId: Int
-    @DecodableDefault.EmptyString var lat: String
-    @DecodableDefault.EmptyString var lon: String
-    @DecodableDefault.EmptyString var displayName: String
-    var addressDetail: AddressDetail
-    @DecodableDefault.EmptyList var boundingbox: [String]
+import UIKit
+import Alamofire
+import Realm
+import RealmSwift
+class TravelHistoryModel: Object, Decodable {
+    @objc dynamic var placeId: Int
+    @objc dynamic var licence: String
+    @objc dynamic var osmType: String
+    @objc dynamic var osmId: Int
+    @objc dynamic var lat: String
+    @objc dynamic var lon: String
+    @objc dynamic var displayName: String
+    @objc dynamic var addressDetail: AddressDetail?
+    var boundingbox: [String]
     
-    private enum CodingKeys: String, CodingKey {
+    enum CodingKeys: String, CodingKey {
         case placeId = "place_id"
         case licence
         case osmType = "osm_type"
@@ -24,21 +28,22 @@ struct TravelHistoryModel: Codable {
         case lat
         case lon
         case displayName = "display_name"
-        case addressDetail
+        case addressDetail = "address_detail"
+        case boundingbox
     }
 }
-struct AddressDetail: Codable {
-    var railway:String
-    var road:String
-    var suburb:String
-    var city:String
-    var municipality: String
-    var county: String
-    var stateDistrict: String
-    var state: String
-    var postcode: String
-    var country: String
-    var countryCode: String
+class AddressDetail: Object, Decodable {
+    @objc dynamic var railway: String
+    @objc dynamic var road: String
+    @objc dynamic var suburb: String
+    @objc dynamic var city: String
+    @objc dynamic var municipality: String
+    @objc dynamic var county: String
+    @objc dynamic var stateDistrict: String
+    @objc dynamic var state: String
+    @objc dynamic var postcode: String
+    @objc dynamic var country: String
+    @objc dynamic var countryCode: String
     private enum CodingKeys: String, CodingKey {
         case railway
         case road

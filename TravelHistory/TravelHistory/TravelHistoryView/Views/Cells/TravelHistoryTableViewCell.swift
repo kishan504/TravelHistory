@@ -5,8 +5,8 @@
 //  Created by Cepl on 13/11/21.
 //
 import UIKit
-class TravelHistroyTableViewCell: UITableViewCell {
-    static let identifier = String(describing: TravelHistroyTableViewCell.self)
+class TravelHistoryTableViewCell: UITableViewCell {
+    static let identifier = String(describing: TravelHistoryTableViewCell.self)
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var locationTime: UILabel!
     override func awakeFromNib() {

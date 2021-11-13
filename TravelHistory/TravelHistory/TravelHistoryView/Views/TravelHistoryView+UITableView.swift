@@ -11,9 +11,9 @@ extension TravelHistoryView: UITableViewDataSource, UITableViewDelegate {
         return locationList.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: TravelHistroyTableViewCell.identifier, for: indexPath)
-        guard let travelHistroyTableViewCell = cell as? TravelHistroyTableViewCell else { return cell }
-        travelHistroyTableViewCell.refreshTravelHistoryTableViewCell()
-        return travelHistroyTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: TravelHistoryTableViewCell.identifier, for: indexPath)
+        guard let travelHistoryTableViewCell = cell as? TravelHistoryTableViewCell else { return cell }
+        travelHistoryTableViewCell.refreshTravelHistoryTableViewCell()
+        return travelHistoryTableViewCell
     }
 }
